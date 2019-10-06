@@ -3,13 +3,39 @@ var btn=document.getElementById("limpiar");
 btn.addEventListener("click",limpiar);
 var d=document.getElementById('dibujito');
 var lienzo=d.getContext("2d");
+var btnAceptar=document.getElementById("btnAceptar");
+btnAceptar.addEventListener("click",aceptacion);
+
+d.addEventListener("mouseup",puntoInicio);
+
+var xinicial;
+var yinicial;
+var xfinal;
+var yfinal;
+var colorLinea;
+var anchoLinea;
+
+function puntoInicio(evento){
+	
+	
+	
+
+	xinicial=evento.offsetX;
+	yinicial=evento.offsetY;
+	xfinal=evento.offsetX;
+	yfinal=evento.offsetY;
+}
 
 
 
-var xinicial=150;
-var yinicial=150;
-var xfinal=150;
-var yfinal=150;
+
+
+function aceptacion(){
+	 colorLinea=document.getElementById("txtColorLinea").value;
+	 anchoLinea=document.getElementById("txtAnchoLinea").value;
+	 document.getElementById("txtAnchoLinea").value;
+
+}
 
 function limpiar(){
 	lienzo.clearRect(0,0,d.width,d.height);
@@ -38,9 +64,9 @@ function dibujar(evento){
 	switch (evento.keyCode) {
 		case letras.UP:
 			
-			if(yfinal>0){
+			if(yfinal>1){
 				yfinal=yfinal-movimiento;
-			hacerLinea(xinicial,yinicial,xfinal,yfinal);
+			hacerLinea(xinicial,yinicial,xfinal,yfinal,colorLinea,anchoLinea);
 			yinicial=yfinal;
 			}else{
 				alert("llegaste al limite");
@@ -52,9 +78,9 @@ function dibujar(evento){
 
 		case letras.DOWN:
 			
-			if(yfinal<d.height){
+			if(yfinal<d.height-1){
 				yfinal=yfinal+movimiento;
-			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
+			    hacerLinea(xinicial,yinicial,xfinal,yfinal,colorLinea,anchoLinea);
 			    yinicial=yfinal;
 			}else{
 				alert("llegaste al limite");
@@ -64,10 +90,10 @@ function dibujar(evento){
 
 		case letras.LEFT:
 			
-			if(xfinal>0){
+			if(xfinal>1){
 
 				xfinal=xfinal-movimiento;
-			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
+			    hacerLinea(xinicial,yinicial,xfinal,yfinal,colorLinea,anchoLinea);
 			    xinicial=xfinal;
 
 			}else {
@@ -78,10 +104,10 @@ function dibujar(evento){
 
 		case letras.RIGHT:
 			
-			if (xfinal<d.width) {
+			if (xfinal<d.width-1) {
 
 				xfinal=xfinal+movimiento;
-			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
+			    hacerLinea(xinicial,yinicial,xfinal,yfinal,colorLinea,anchoLinea);
 			    xinicial=xfinal;
 
 			}else {
@@ -99,10 +125,12 @@ function dibujar(evento){
 
 	
 
-	function hacerLinea(xinicial,yinicial,xfinal,yfinal){
+	function hacerLinea(xinicial,yinicial,xfinal,yfinal,color,anchoLinea){
 
+d.height = screen.width;
 		lienzo.beginPath();
-		lienzo.strokeStyle= "black";
+		lienzo.strokeStyle= color;
+		lienzo.lineWidth=anchoLinea;
 		lienzo.moveTo(xinicial,yinicial);
 		lienzo.lineTo(xfinal,yfinal);
 		lienzo.stroke();

@@ -1,0 +1,39 @@
+h1{
+	color: white;
+	
+}
+#titulo{
+	
+	background: green;
+	text-align: center;
+}
+
+#opciones{
+	padding: 2%;
+	background: #2E9AFE;
+	margin-top: -1%;
+	margin-bottom: -1%;
+
+}
+#espacioCanvas{
+	background: gray;
+	padding: 10px;
+}
+canvas{
+	background: black;
+
+}
+
+#limpiar{
+	background: green;
+	color: white;
+	border-radius: 30%;
+	width: 50%;
+	height: 200%;
+	padding: 1%;
+	float: right;
+
+}
+body{
+	background: #FF0080;
+}

@@ -2,13 +2,29 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>tu figura</title>
+	<title>tu figura</title>	
 </head>
 <body>
-	<h1>Bienvenido</h1>
-<br><br><br>
-	<canvas height="300" width="300" id="dibujito"></canvas>
-    <input type="button" id="limpiar" value="limpiar">
+
+	<div id="titulo">
+		<h1>Bienvenido</h1>
+	</div>
+
+	<div id="opciones">
+		<label for= "txtColorLinea">Color de linea</label><input type="text" id="txtColorLinea">
+		<label for= "txtAnchoLinea">ancho de linea</label><input type="text" id="txtAnchoLinea">
+		
+		<input type="button" id="btnAceptar" value="Aceptar">
+	</div>   
+	
+	<div id="espacioCanvas">
+		<canvas  height="300"  id="dibujito"></canvas>
+	</div>
+
+	<div contenedorBTN>
+   	    <input type="button" id="limpiar" value="limpiar">
+    </div>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 	<script type="text/javascript" src="eventoTeclas.js"></script>
 	<script type="text/javascript" src="eventoMouse.js"></script>
 
