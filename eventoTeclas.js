@@ -23,7 +23,7 @@ function limpiar(){
 function dibujar(evento){
 
 	
-
+	var movimiento=5;
 	var letras = {
 		UP: 38,
 		DOWN: 40,
@@ -39,7 +39,7 @@ function dibujar(evento){
 		case letras.UP:
 			
 			if(yfinal>0){
-				yfinal=yfinal-10;
+				yfinal=yfinal-movimiento;
 			hacerLinea(xinicial,yinicial,xfinal,yfinal);
 			yinicial=yfinal;
 			}else{
@@ -53,7 +53,7 @@ function dibujar(evento){
 		case letras.DOWN:
 			
 			if(yfinal<d.height){
-				yfinal=yfinal+10;
+				yfinal=yfinal+movimiento;
 			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
 			    yinicial=yfinal;
 			}else{
@@ -66,7 +66,7 @@ function dibujar(evento){
 			
 			if(xfinal>0){
 
-				xfinal=xfinal-10;
+				xfinal=xfinal-movimiento;
 			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
 			    xinicial=xfinal;
 
@@ -80,7 +80,7 @@ function dibujar(evento){
 			
 			if (xfinal<d.width) {
 
-				xfinal=xfinal+10;
+				xfinal=xfinal+movimiento;
 			    hacerLinea(xinicial,yinicial,xfinal,yfinal);
 			    xinicial=xfinal;
 
